@@ -24,12 +24,16 @@ public class ForecastFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        View v = inflater.inflate(R.layout.activity_weather, container, false);
+
+        LinearLayout linearLayout = v.findViewById(R.id.linear_layout);
 
         TextView day = new TextView(getActivity());
         day.setText("Thursday");
         day.setPadding(0, 10, 0, 10);
         day.setTextSize(35);
         day.setTypeface(null, Typeface.BOLD);
+        day.setGravity(Gravity.CENTER);
 
         ImageView weatherIcon = new ImageView(getActivity());
         weatherIcon.setImageResource(R.drawable.snowandrain);
@@ -38,18 +42,10 @@ public class ForecastFragment extends Fragment {
         weatherIcon.setScaleY((float) 0.5);
         weatherIcon.setAdjustViewBounds(true);
 
-
-        RelativeLayout.LayoutParams textViewParam = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
-        textViewParam.addRule(RelativeLayout.CENTER_IN_PARENT);
-        RelativeLayout.LayoutParams imageViewParam = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
-
-        View v = inflater.inflate(R.layout.fragment_forcast, container, false);
-
-        LinearLayout linearLayout = v.findViewById(R.id.linear_layout);
         linearLayout.setOrientation(LinearLayout.VERTICAL);
         linearLayout.setGravity(Gravity.CENTER);
-        linearLayout.addView(day, textViewParam);
-        linearLayout.addView(weatherIcon, imageViewParam);
+        linearLayout.addView(day);
+        linearLayout.addView(weatherIcon);
 
         v.setBackgroundResource(R.drawable.gradient_background);
 
