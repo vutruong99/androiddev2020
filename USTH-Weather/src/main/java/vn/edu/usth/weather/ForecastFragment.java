@@ -24,31 +24,33 @@ public class ForecastFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.activity_weather, container, false);
+        View v = inflater.inflate(R.layout.weather_fragment, container, false);
 
-        LinearLayout linearLayout = v.findViewById(R.id.linear_layout);
+        /* LinearLayout linearLayout = v.findViewById(R.id.linear_layout);
 
         TextView day = new TextView(getActivity());
         day.setText("Thursday");
-        day.setPadding(0, 10, 0, 10);
-        day.setTextSize(35);
+        day.setTextSize(20);
         day.setTypeface(null, Typeface.BOLD);
         day.setGravity(Gravity.CENTER);
 
         ImageView weatherIcon = new ImageView(getActivity());
+
         weatherIcon.setImageResource(R.drawable.snowandrain);
         weatherIcon.setScaleType(ImageView.ScaleType.FIT_CENTER);
         weatherIcon.setScaleX((float) 0.5);
         weatherIcon.setScaleY((float) 0.5);
+        weatherIcon.setMaxWidth(100);
+        weatherIcon.setMaxHeight(100);
         weatherIcon.setAdjustViewBounds(true);
 
         linearLayout.setOrientation(LinearLayout.VERTICAL);
         linearLayout.setGravity(Gravity.CENTER);
-        linearLayout.addView(day);
-        linearLayout.addView(weatherIcon);
+        //linearLayout.addView(day);
+        //linearLayout.addView(weatherIcon);
 
         v.setBackgroundResource(R.drawable.gradient_background);
-
+        */
         return v;
     }
 
