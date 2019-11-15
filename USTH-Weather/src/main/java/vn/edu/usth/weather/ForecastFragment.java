@@ -1,21 +1,10 @@
 package vn.edu.usth.weather;
 
-import android.content.Context;
-import android.graphics.Typeface;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 
 public class ForecastFragment extends Fragment {
@@ -24,7 +13,7 @@ public class ForecastFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.weather_fragment, container, false);
+        View v = inflater.inflate(R.layout.forecast_fragment, container, false);
 
         /* LinearLayout linearLayout = v.findViewById(R.id.linear_layout);
 

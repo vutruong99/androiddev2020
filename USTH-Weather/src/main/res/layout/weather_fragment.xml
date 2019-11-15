@@ -1,293 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/linear_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".WeatherActivity"
-    android:orientation="vertical"
-    android:background="@drawable/gradient_background">
+    android:layout_height="500px"
+    android:id="@+id/weather_fragment"
+    tools:context=".WeatherFragment"
+    android:background="#89CEA1">
 
-    <LinearLayout
-        android:id="@+id/day1"
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingTop="8px"
-        android:paddingBottom="8px">
+        android:text="5438 degrees\n Sunlike"
+        android:shadowColor="#000000"
+        android:shadowDx="1.5"
+        android:shadowDy="1.3"
+        android:shadowRadius="1.6"
+        android:layout_alignParentLeft="true"
+        android:paddingLeft="10px"
+        android:paddingTop="10px"
+        android:textSize="50px"
+        />
 
-        <TextView
-            android:layout_width="300px"
-            android:layout_height="70dp"
-            android:gravity="center"
-            android:shadowColor="#000000"
-            android:shadowDx="1.5"
-            android:shadowDy="1.3"
-            android:shadowRadius="1.6"
-            android:text="Monday"
-            android:textColor="@android:color/white"
-            android:textSize="50px" />
+    <ImageView
+        android:id="@+id/main_weather"
+        android:layout_width="400px"
+        android:layout_height="400px"
+        android:src="@drawable/earth"
+        android:layout_centerInParent="true"/>
 
-        <ImageView
-            android:layout_width="148dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:contentDescription="@string/default_image_description"
-            android:src="@drawable/cloudy" />
-
-        <TextView
-            android:layout_width="150dp"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="Paris \n 40 degrees"
-            android:textSize="50px"
-            android:shadowColor="#000000"
-            android:shadowDx="1.5"
-            android:shadowDy="1.3"
-            android:shadowRadius="1.6"
-            android:textColor="@android:color/white"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/day2"
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingTop="8px"
-        android:paddingBottom="8px">
+        android:shadowColor="#000000"
+        android:shadowDx="1.5"
+        android:shadowDy="1.3"
+        android:shadowRadius="1.6"
+        android:paddingRight="10px"
+        android:paddingTop="10px"
+        android:layout_alignParentRight="true"
+        android:text="Toronto"
+        android:textSize="50px" />
 
-        <TextView
-            android:layout_width="300px"
-            android:layout_height="70dp"
-            android:gravity="center"
-            android:shadowColor="#000000"
-            android:shadowDx="1.5"
-            android:shadowDy="1.3"
-            android:shadowRadius="1.6"
-            android:text="Tuesday"
-            android:textColor="@android:color/white"
-            android:textSize="50px" />
-
-        <ImageView
-            android:layout_width="148dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:contentDescription="@string/default_image_description"
-            android:src="@drawable/rain" />
-
-        <TextView
-            android:layout_width="150dp"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="Sydney \n 24 degrees"
-            android:textSize="50px"
-            android:shadowColor="#000000"
-            android:shadowDx="1.5"
-            android:shadowDy="1.3"
-            android:shadowRadius="1.6"
-            android:textColor="@android:color/white"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/day3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingTop="8px"
-        android:paddingBottom="8px">
-
-        <TextView
-            android:layout_width="300px"
-            android:layout_height="70dp"
-            android:gravity="center"
-            android:shadowColor="#000000"
-            android:shadowDx="1.5"
-            android:shadowDy="1.3"
-            android:shadowRadius="1.6"
-            android:text="Wednesday"
-            android:textColor="@android:color/white"
-            android:textSize="50px" />
-
-        <ImageView
-            android:layout_width="148dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:contentDescription="@string/default_image_description"
-            android:src="@drawable/sunny" />
-
-        <TextView
-            android:layout_width="150dp"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="Rome \n 19 degrees"
-            android:textSize="50px"
-            android:shadowColor="#000000"
-            android:shadowDx="1.5"
-            android:shadowDy="1.3"
-            android:shadowRadius="1.6"
-            android:textColor="@android:color/white"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/day4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingTop="8px"
-        android:paddingBottom="8px">
-
-        <TextView
-            android:layout_width="300px"
-            android:layout_height="70dp"
-            android:gravity="center"
-            android:shadowColor="#000000"
-            android:shadowDx="1.5"
-            android:shadowDy="1.3"
-            android:shadowRadius="1.6"
-            android:text="Thursday"
-            android:textColor="@android:color/white"
-            android:textSize="50px" />
-
-        <ImageView
-            android:layout_width="148dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:contentDescription="@string/default_image_description"
-            android:src="@drawable/snowandrain" />
-
-        <TextView
-            android:layout_width="150dp"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="Stockholm \n 33 degrees"
-            android:textSize="50px"
-            android:shadowColor="#000000"
-            android:shadowDx="1.5"
-            android:shadowDy="1.3"
-            android:shadowRadius="1.6"
-            android:textColor="@android:color/white"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/day5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingTop="8px"
-        android:paddingBottom="8px">
-
-        <TextView
-            android:layout_width="300px"
-            android:layout_height="70dp"
-            android:gravity="center"
-            android:shadowColor="#000000"
-            android:shadowDx="1.5"
-            android:shadowDy="1.3"
-            android:shadowRadius="1.6"
-            android:text="Friday"
-            android:textColor="@android:color/white"
-            android:textSize="50px" />
-
-        <ImageView
-            android:layout_width="148dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:contentDescription="@string/default_image_description"
-            android:src="@drawable/rainwithsun" />
-
-        <TextView
-            android:layout_width="150dp"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="New York \n 24 degrees"
-            android:textSize="50px"
-            android:shadowColor="#000000"
-            android:shadowDx="1.5"
-            android:shadowDy="1.3"
-            android:shadowRadius="1.6"
-            android:textColor="@android:color/white"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/day6"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingTop="8px"
-        android:paddingBottom="8px">
-
-        <TextView
-            android:layout_width="300px"
-            android:layout_height="70dp"
-            android:gravity="center"
-            android:shadowColor="#000000"
-            android:shadowDx="1.5"
-            android:shadowDy="1.3"
-            android:shadowRadius="1.6"
-            android:text="Saturday"
-            android:textColor="@android:color/white"
-            android:textSize="50px" />
-
-        <ImageView
-            android:layout_width="148dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:contentDescription="@string/default_image_description"
-            android:src="@drawable/cresentmoon" />
-
-        <TextView
-            android:layout_width="150dp"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="Tokyo \n 16 degrees"
-            android:textSize="50px"
-            android:shadowColor="#000000"
-            android:shadowDx="1.5"
-            android:shadowDy="1.3"
-            android:shadowRadius="1.6"
-            android:textColor="@android:color/white"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/day7"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingTop="8px"
-        android:paddingBottom="8px">
-
-        <TextView
-            android:layout_width="300px"
-            android:layout_height="70dp"
-            android:gravity="center"
-            android:shadowColor="#000000"
-            android:shadowDx="1.5"
-            android:shadowDy="1.3"
-            android:shadowRadius="1.6"
-            android:text="Sunday"
-            android:textColor="@android:color/white"
-            android:textSize="50px" />
-
-        <ImageView
-            android:layout_width="148dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:contentDescription="@string/default_image_description"
-            android:src="@drawable/fullmoon" />
-
-        <TextView
-            android:layout_width="150dp"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="Hanoi \n 30 degrees"
-            android:textSize="50px"
-            android:shadowColor="#000000"
-            android:shadowDx="1.5"
-            android:shadowDy="1.3"
-            android:shadowRadius="1.6"
-            android:textColor="@android:color/white"/>
-    </LinearLayout>
-
-
-</LinearLayout>
+</RelativeLayout>
