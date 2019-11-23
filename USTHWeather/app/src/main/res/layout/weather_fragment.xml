@@ -2,12 +2,13 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="600px"
+    android:layout_height="250dp"
     android:id="@+id/weather_fragment"
     tools:context=".WeatherFragment"
-    android:background="#8caad2">
+    android:background="@drawable/frame">
 
     <TextView
+        android:layout_margin="35dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="5438 degrees\n Sunlike"
@@ -23,12 +24,13 @@
 
     <ImageView
         android:id="@+id/main_weather"
-        android:layout_width="400px"
-        android:layout_height="400px"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:src="@drawable/earth"
         android:layout_centerInParent="true"/>
 
     <TextView
+        android:layout_margin="35dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:shadowColor="#000000"
