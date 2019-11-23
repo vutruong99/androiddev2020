@@ -18,7 +18,8 @@
         android:paddingBottom="8px">
 
         <TextView
-            android:layout_width="120dp"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
             android:layout_height="70dp"
             android:gravity="center"
             android:shadowColor="#000000"
@@ -30,14 +31,16 @@
             android:textSize="50px" />
 
         <ImageView
-            android:layout_width="148dp"
+            android:layout_weight="2"
+            android:layout_width="0px"
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:contentDescription="@string/default_image_description"
             android:src="@drawable/cloud" />
 
         <TextView
-            android:layout_width="120dp"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="40 degrees"
@@ -58,7 +61,8 @@
         android:paddingBottom="8px">
 
         <TextView
-            android:layout_width="120dp"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
             android:layout_height="70dp"
             android:gravity="center"
             android:shadowColor="#000000"
@@ -70,14 +74,16 @@
             android:textSize="50px" />
 
         <ImageView
-            android:layout_width="148dp"
+            android:layout_weight="2"
+            android:layout_width="0px"
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:contentDescription="@string/default_image_description"
             android:src="@drawable/rain" />
 
         <TextView
-            android:layout_width="120dp"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="24 degrees"
@@ -98,7 +104,8 @@
         android:paddingBottom="8px">
 
         <TextView
-            android:layout_width="120dp"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
             android:layout_height="70dp"
             android:gravity="center"
             android:shadowColor="#000000"
@@ -110,14 +117,16 @@
             android:textSize="50px" />
 
         <ImageView
-            android:layout_width="148dp"
+            android:layout_weight="2"
+            android:layout_width="0px"
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:contentDescription="@string/default_image_description"
             android:src="@drawable/rainbow" />
 
         <TextView
-            android:layout_width="120dp"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="19 degrees"
@@ -138,7 +147,8 @@
         android:paddingBottom="8px">
 
         <TextView
-            android:layout_width="120dp"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
             android:layout_height="70dp"
             android:gravity="center"
             android:shadowColor="#000000"
@@ -150,15 +160,17 @@
             android:textSize="50px" />
 
         <ImageView
-            android:layout_width="148dp"
+            android:layout_weight="2"
+            android:layout_width="0px"
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:contentDescription="@string/default_image_description"
             android:src="@drawable/spring" />
 
         <TextView
-            android:layout_width="120dp"
-            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
             android:gravity="center"
             android:text="33 degrees"
             android:textSize="50px"
@@ -178,7 +190,8 @@
         android:paddingBottom="8px">
 
         <TextView
-            android:layout_width="120dp"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
             android:layout_height="70dp"
             android:gravity="center"
             android:shadowColor="#000000"
@@ -190,14 +203,16 @@
             android:textSize="50px" />
 
         <ImageView
-            android:layout_width="148dp"
+            android:layout_weight="2"
+            android:layout_width="0px"
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:contentDescription="@string/default_image_description"
             android:src="@drawable/fullmoon" />
 
         <TextView
-            android:layout_width="120dp"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="24 degrees"
@@ -218,7 +233,8 @@
         android:paddingBottom="8px">
 
         <TextView
-            android:layout_width="120dp"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
             android:layout_height="70dp"
             android:gravity="center"
             android:shadowColor="#000000"
@@ -230,14 +246,16 @@
             android:textSize="50px" />
 
         <ImageView
-            android:layout_width="148dp"
+            android:layout_weight="2"
+            android:layout_width="0px"
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:contentDescription="@string/default_image_description"
             android:src="@drawable/tsunami" />
 
         <TextView
-            android:layout_width="120dp"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="16 degrees"
@@ -258,7 +276,8 @@
         android:paddingBottom="8px">
 
         <TextView
-            android:layout_width="120dp"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
             android:layout_height="70dp"
             android:gravity="center"
             android:shadowColor="#000000"
@@ -270,14 +289,16 @@
             android:textSize="50px" />
 
         <ImageView
-            android:layout_width="148dp"
+            android:layout_weight="2"
+            android:layout_width="0px"
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:contentDescription="@string/default_image_description"
             android:src="@drawable/winter" />
 
         <TextView
-            android:layout_width="120dp"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="30 degrees"

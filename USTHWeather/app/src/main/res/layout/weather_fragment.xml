@@ -5,7 +5,7 @@
     android:layout_height="600px"
     android:id="@+id/weather_fragment"
     tools:context=".WeatherFragment"
-    android:background="@drawable/gradient_background3">
+    android:background="#8caad2">
 
     <TextView
         android:layout_width="wrap_content"
