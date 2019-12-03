@@ -1,45 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:showIn="navigation_view">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!--now add some icons-->
-
-    <group android:checkableBehavior="single">
-
-        <item
-            android:id="@+id/home"
-            android:title="Home"
-            />
-        <item
-            android:id="@+id/work"
-            android:title="Work"
-
-            />
-        <item
-            android:id="@+id/school"
-            android:title="School"
-            />
-        <item
-            android:id="@+id/timeline"
-            android:title="Time Line"
-            />
-
-    </group>
-
-    <item android:title="Controls">
-
-        <menu>
-            <item
-                android:id="@+id/setting"
-                android:title="Setting"
-                />
-            <item
-                android:id="@+id/logout"
-                android:title="Logout"
-                />
-        </menu>
-
-    </item>
+    <item
+        android:id="@+id/refresh"
+        android:icon="@mipmap/ic_refresh"
+        android:title="refresh"
+        app:showAsAction="always"
+        />
+    <item
+        android:id="@+id/settings"
+        android:title="Settings" />
 
 </menu>
