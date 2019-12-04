@@ -1,7 +1,11 @@
 package vn.edu.usth.weather;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.media.MediaPlayer;
+import android.os.AsyncTask;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
@@ -14,6 +18,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.support.v4.app.FragmentActivity;
 import android.widget.TableLayout;
@@ -26,6 +31,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.ProtocolException;
+import java.net.URL;
 
 public class WeatherActivity extends AppCompatActivity {
 
@@ -39,6 +47,7 @@ public class WeatherActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), content, Toast.LENGTH_SHORT).show();
         }
     };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,14 +63,13 @@ public class WeatherActivity extends AppCompatActivity {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
         tabLayout.setupWithViewPager(viewPager);
 
-        InputStream is = getResources().openRawResource(R.raw.humble);
-
         writeExternal();
 
         mp = MediaPlayer.create(getApplicationContext(), R.raw.humble);
 
         mp.start();
 
+        new GetRequestImage().execute("https://www.usth.edu.vn/uploads/logo_1.png");
     }
 
 
@@ -78,31 +86,58 @@ public class WeatherActivity extends AppCompatActivity {
         int id = item.getItemId();
         switch (id) {
             case R.id.refresh:
-                Thread t = new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-// this method is run in a worker thread
-                        try {
-// wait for 5 seconds to simulate a long network access
-                            Thread.sleep(5000);
-                        }
-                        catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-// Assume that we got our data from server
-                        Bundle bundle = new Bundle();
-                        bundle.putString("server_response", "some sample json here");
-// notify main thread
-                        Message msg = new Message();
-                        msg.setData(bundle);
-                        handler.sendMessage(msg);
-                    }
-                });
-                t.start();
+                //AsyncTaskRunner runner = new AsyncTaskRunner();
+                //runner.execute("5000");
                 return true;
             case R.id.settings:
                 return true;
             default: return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private class GetRequestImage extends AsyncTask<String, Integer, Bitmap> {
+        private String resp;
+        ProgressDialog progressDialog;
+        Bitmap bitmap;
+
+        @Override
+        protected Bitmap doInBackground(String... params) {
+            try {
+                URL url = new URL(params[0]);
+                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                connection.connect();
+
+                InputStream is = connection.getInputStream();
+                bitmap = BitmapFactory.decodeStream(is);
+                return bitmap;
+
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            return null;
+
+        }
+
+        protected void onPostExecute(Bitmap bitmap) {
+            // execution of result of Long time consuming operation
+            super.onPostExecute(bitmap);
+            progressDialog.dismiss();
+            ImageView imageView = (ImageView) findViewById(R.id.logo);
+            imageView.setImageBitmap(bitmap);
+        }
+
+        @Override
+        protected void onPreExecute() {
+            progressDialog = ProgressDialog.show(WeatherActivity.this,
+                    "Updating weather...",
+                    "Wait for 5 seconds!");
+        }
+
+
+        protected void onProgressUpdate(String... text) {
+            // Do something here
         }
     }
 

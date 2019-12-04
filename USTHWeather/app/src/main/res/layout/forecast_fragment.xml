@@ -138,6 +138,12 @@
             android:textColor="@android:color/white"/>
     </LinearLayout>
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:id="@+id/logo"
+        android:alpha="0.7"/>
+
     <LinearLayout
         android:id="@+id/day4"
         android:layout_width="match_parent"
