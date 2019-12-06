@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="250dp"
+    android:layout_height="wrap_content"
     android:id="@+id/weather_fragment"
     tools:context=".WeatherFragment"
     android:background="@drawable/frame">
@@ -25,7 +25,6 @@
         android:id="@+id/main_weather"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:src="@drawable/earth"
         android:layout_centerInParent="true"/>
 
     <TextView

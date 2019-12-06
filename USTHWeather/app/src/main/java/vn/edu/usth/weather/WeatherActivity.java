@@ -1,9 +1,12 @@
 package vn.edu.usth.weather;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.os.Environment;
@@ -25,6 +28,12 @@ import android.widget.TableLayout;
 import android.support.design.widget.TabLayout;
 import android.widget.Toast;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.ImageRequest;
+import com.android.volley.toolbox.Volley;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -35,9 +44,12 @@ import java.net.HttpURLConnection;
 import java.net.ProtocolException;
 import java.net.URL;
 
+
 public class WeatherActivity extends AppCompatActivity {
 
     MediaPlayer mp;
+    Context context;
+    RequestQueue requestQueue;
 
     final Handler handler = new Handler(Looper.getMainLooper()) {
         @Override
@@ -48,6 +60,30 @@ public class WeatherActivity extends AppCompatActivity {
         }
     };
 
+    private void networkRequest() {
+        requestQueue = Volley.newRequestQueue(this);
+
+        Response.Listener<Bitmap> listener =
+                new Response.Listener<Bitmap>() {
+                    @Override
+                    public void onResponse(Bitmap response) {
+                        ImageView iv = (ImageView) findViewById(R.id.main_weather);
+                        iv.setImageBitmap(response);
+                    }
+                };
+
+        ImageRequest imageRequest = new ImageRequest(
+                "https://usth.edu.vn/uploads/logo_1_vi.png",
+                listener, 0, 0, ImageView.ScaleType.CENTER,
+                Bitmap.Config.ARGB_8888, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(WeatherActivity.this, " LMAOOOOOOOOOOOOOOO      " + error, Toast.LENGTH_LONG).show();
+            }
+        });
+
+        requestQueue.add(imageRequest);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,12 +102,11 @@ public class WeatherActivity extends AppCompatActivity {
         writeExternal();
 
         mp = MediaPlayer.create(getApplicationContext(), R.raw.humble);
+        mp.stop();
+        //mp.start();
 
-        mp.start();
-
-        new GetRequestImage().execute("https://www.usth.edu.vn/uploads/logo_1.png");
+        new GetRequestImage().execute("https://i.pinimg.com/474x/f3/d5/d5/f3d5d5cc4d8ea544d8a4658e30f7c715.jpg");
     }
-
 
 
     //Labwork 12
@@ -86,6 +121,7 @@ public class WeatherActivity extends AppCompatActivity {
         int id = item.getItemId();
         switch (id) {
             case R.id.refresh:
+                networkRequest();
                 //AsyncTaskRunner runner = new AsyncTaskRunner();
                 //runner.execute("5000");
                 return true;
@@ -124,8 +160,9 @@ public class WeatherActivity extends AppCompatActivity {
             // execution of result of Long time consuming operation
             super.onPostExecute(bitmap);
             progressDialog.dismiss();
-            ImageView imageView = (ImageView) findViewById(R.id.logo);
-            imageView.setImageBitmap(bitmap);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.forecast_fragment);
+            Drawable bitmapDrawable = new BitmapDrawable(getResources(), bitmap);
+            linearLayout.setBackgroundDrawable(bitmapDrawable);
         }
 
         @Override
