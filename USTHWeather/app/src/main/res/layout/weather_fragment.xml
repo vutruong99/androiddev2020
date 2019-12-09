@@ -8,9 +8,9 @@
     android:background="@drawable/frame">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="5438 degrees\n Sunlike"
+        android:id="@+id/test"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
         android:shadowColor="#000000"
         android:shadowDx="1.5"
         android:shadowDy="1.3"

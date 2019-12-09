@@ -26,13 +26,20 @@ import android.widget.LinearLayout;
 import android.support.v4.app.FragmentActivity;
 import android.widget.TableLayout;
 import android.support.design.widget.TabLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -60,7 +67,7 @@ public class WeatherActivity extends AppCompatActivity {
         }
     };
 
-    private void networkRequest() {
+    /* Labwork 16 private void networkRequest() {
         requestQueue = Volley.newRequestQueue(this);
 
         Response.Listener<Bitmap> listener =
@@ -83,7 +90,7 @@ public class WeatherActivity extends AppCompatActivity {
         });
 
         requestQueue.add(imageRequest);
-    }
+    } */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,6 +113,44 @@ public class WeatherActivity extends AppCompatActivity {
         //mp.start();
 
         new GetRequestImage().execute("https://i.pinimg.com/474x/f3/d5/d5/f3d5d5cc4d8ea544d8a4658e30f7c715.jpg");
+
+
+    }
+
+    public void findWeather() {
+        requestQueue = Volley.newRequestQueue(this);
+        String url = "https://api.myjson.com/bins/1eyn6g";
+        JsonObjectRequest jor = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                try {
+                    JSONArray mainArray = response.getJSONArray("list");
+                    JSONObject objectZero = mainArray.getJSONObject(0);
+                    JSONObject objectZeroZero = objectZero.getJSONObject("temp");
+
+
+
+                    String tempTest = objectZeroZero.getString("day");
+
+                    TextView tv = findViewById(R.id.test);
+                    tv.setText(tempTest);
+
+                    Toast.makeText(getApplicationContext(), "LMAO", Toast.LENGTH_SHORT).show();
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(), "LMAO" + e, Toast.LENGTH_SHORT).show();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        }
+        );
+
+        requestQueue.add(jor);
     }
 
 
@@ -121,7 +166,8 @@ public class WeatherActivity extends AppCompatActivity {
         int id = item.getItemId();
         switch (id) {
             case R.id.refresh:
-                networkRequest();
+                findWeather();
+                //networkRequest();
                 //AsyncTaskRunner runner = new AsyncTaskRunner();
                 //runner.execute("5000");
                 return true;
